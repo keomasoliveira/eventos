@@ -1,0 +1,67 @@
+<h2>Lista de events</h2>
+<hr />
+<div class="row row-cols-lg-auto g-3 align-items-center" action="">
+  <label class="mr-2">Filtro:</label>
+  <div>
+    <label class="visually-hidden" for="inlineFormInputGroupUsername"></label>
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="buscar"
+        [(ngModel)]="filterList"
+      />
+    </div>
+  </div>
+</div>
+<hr />
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>
+        <button class="btn btn-outline-light btn-sm" (click)="AlterImg()">
+          {{ showImg ? "Ocultar" : "Exibir" }}
+        </button>
+      </th>
+      <th>#</th>
+      <th>Evento</th>
+      <th>Qtd de pessoas</th>
+      <th>Data Abertura</th>
+      <th>Data Conclusão</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="events && events.length">
+    <tr *ngFor="let event of eventosfiltrados">
+      <td>
+        <img
+          [collapse]="showImg"
+          [isAnimated]="true"
+          class="rounded-circle"
+          src="https://i.imgur.com/Z6dkoKY.jpg"
+          [style.width.px]="widthImg"
+        />
+      </td>
+      <td>{{ event.id }}</td>
+      <td>{{ event.eventName }}</td>
+      <td>{{ event.qtdPessoas }}</td>
+      <td>{{ event.dataAbertura }}</td>
+      <td>{{ event.dataConclusao }}</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm me-2">
+          Editar
+        </button>
+        <button type="button" class="btn btn-danger btn-sm">
+          Excluir
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!events.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>Nenhum Evento Encontrado</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
