@@ -5,6 +5,6 @@ namespace API.Domain
     public int AtracaoId { get; set; }
     public Atracao Atracao { get; set; }
     public int EventoId { get; set; }
-    public EventosList Evento { get; set; }
+    public Eventos Evento { get; set; }
   }
 }

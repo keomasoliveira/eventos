@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Domain
 {
 
-  public class EventosList
+  public class Eventos
 
   {
     public int Id { get; set; }

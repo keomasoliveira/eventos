@@ -11,7 +11,7 @@ namespace API.Domain
     public DateTime? DataFim { get; set; }
     public int Quantidade { get; set; }
     public int EventoId { get; set; }
-    public EventosList Evento { get; set; }
+    public Eventos Evento { get; set; }
 
   }
 }

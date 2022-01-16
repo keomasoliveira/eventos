@@ -25,13 +25,13 @@ namespace API.Controllers
 
 
     [HttpGet]
-    public IEnumerable<EventosList> Get()
+    public IEnumerable<Eventos> Get()
     {
       return _context.Eventos;
     }
 
     [HttpGet("{id}")]
-    public EventosList GetbyId(int id)
+    public Eventos GetbyId(int id)
     {
       return _context.Eventos.FirstOrDefault(evento => evento.EventoId == id);
     }
