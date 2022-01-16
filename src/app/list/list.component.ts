@@ -7,7 +7,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  widthImg: number = 100;
+  widthImg: number = 200;
   showImg: boolean = true;
   private _filterList: string = '';
   events: any = [];
@@ -41,16 +41,12 @@ export class ListComponent implements OnInit {
   }
 
   public getevents() {
-    this.http
-      .get(
-        'https://my-json-server.typicode.com/keomasoliveira/api-fake/eventos'
-      )
-      .subscribe(
-        (response) => {
-          this.events = response;
-          this.eventosfiltrados = this.events;
-        },
-        (error) => console.log(error)
-      );
+    this.http.get('https://localhost:5001/api/Eventos').subscribe(
+      (response) => {
+        this.events = response;
+        this.eventosfiltrados = this.events;
+      },
+      (error) => console.log(error)
+    );
   }
 }

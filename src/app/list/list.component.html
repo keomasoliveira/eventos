@@ -1,7 +1,7 @@
 <h2>Lista de events</h2>
 <hr />
 <div class="row row-cols-lg-auto g-3 align-items-center" action="">
-  <label class="mr-2">Filtro:</label>
+  <label class="me-2">Filtro:</label>
   <div>
     <label class="visually-hidden" for="inlineFormInputGroupUsername"></label>
     <div class="input-group">
@@ -24,10 +24,11 @@
         </button>
       </th>
       <th>#</th>
-      <th>Evento</th>
-      <th>Qtd de pessoas</th>
-      <th>Data Abertura</th>
-      <th>Data Conclusão</th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Lote</th>
+      <th>QtdPessoas</th>
+      <th>DataEvento</th>
       <th>Opções</th>
     </tr>
   </thead>
@@ -37,16 +38,17 @@
         <img
           [collapse]="showImg"
           [isAnimated]="true"
-          class="rounded-circle"
-          src="https://i.imgur.com/Z6dkoKY.jpg"
+          class=""
+          src="/assets/{{event.foto}}"
           [style.width.px]="widthImg"
         />
       </td>
-      <td>{{ event.id }}</td>
-      <td>{{ event.eventName }}</td>
+      <td>{{ event.eventoId }}</td>
+      <td>{{ event.tema }}</td>
+      <td>{{ event.local }}</td>
+      <td>{{ event.lote }}</td>
       <td>{{ event.qtdPessoas }}</td>
-      <td>{{ event.dataAbertura }}</td>
-      <td>{{ event.dataConclusao }}</td>
+      <td>{{ event.dataEvento }}</td>
       <td>
         <button type="button" class="btn btn-primary btn-sm me-2">
           Editar
