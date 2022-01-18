@@ -15,7 +15,7 @@ namespace API.Persistence
     {
 
     }
-    public DbSet<Eventos> Eventos { get; set; }
+    public DbSet<Evento> Eventos { get; set; }
     public DbSet<Lote> Lotes { get; set; }
     public DbSet<Atracao> Atracoes { get; set; }
     public DbSet<AtracaoEvento> AtracoesEventos { get; set; }

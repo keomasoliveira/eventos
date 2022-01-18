@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Domain
 {
 
-  public class Eventos
+  public class Evento
 
   {
     public int Id { get; set; }
@@ -22,7 +22,7 @@ namespace API.Domain
     public string Telefone { get; set; }
     public string Email { get; set; }
 
-    public IEnumerable<Lote> Lote { get; set; }
+    public IEnumerable<Lote> Lotes { get; set; }
     public IEnumerable<RedeSocial> RedesSociais { get; set; }
     public IEnumerable<AtracaoEvento> AtracoesEventos { get; set; }
 
