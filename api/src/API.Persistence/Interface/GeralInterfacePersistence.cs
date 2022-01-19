@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace API.Persistence
 {
-  public class GeralInterfacePersistence : GeralPesist
+  public class GeralInterfacePersistence : GeralPersist
   {
     private readonly EventosContext _context;
     public GeralInterfacePersistence(EventosContext context)

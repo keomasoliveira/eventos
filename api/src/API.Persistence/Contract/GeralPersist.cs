@@ -1,9 +1,8 @@
 using System.Threading.Tasks;
-using API.Domain;
 
 namespace API.Persistence
 {
-  public interface GeralPesist
+  public interface GeralPersist
   {
     void Add<T>(T entity) where T : class;
     void Update<T>(T entity) where T : class;

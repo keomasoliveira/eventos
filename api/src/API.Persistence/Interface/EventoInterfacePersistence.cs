@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Persistence
 {
-  public class EventoInterfacePersistence : EventoPesist
+  public class EventoInterfacePersistence : EventoPersist
   {
     private readonly EventosContext _context;
     public EventoInterfacePersistence(EventosContext context)
@@ -53,7 +53,7 @@ namespace API.Persistence
 
       return await query.ToArrayAsync();
     }
-    public async Task<Evento> GetAllEventosByIdAsync(int eventoId, bool includeAtracao = false)
+    public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includeAtracao = false)
     {
       {
         IQueryable<Evento> query = _context.Eventos

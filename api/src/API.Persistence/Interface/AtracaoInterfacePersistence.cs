@@ -2,7 +2,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Domain;
 using Microsoft.EntityFrameworkCore;
-
 namespace API.Persistence
 {
   public class AtracaoInterfacePersistence : AtracaoPersist
@@ -32,7 +31,7 @@ namespace API.Persistence
       return await query.ToArrayAsync();
     }
 
-    public async Task<Atracao> GetAllAtracaoByIdAsync(int atracaoId, bool includeEventos)
+    public async Task<Atracao> GetAtracaoByIdAsync(int atracaoId, bool includeEventos)
     {
       IQueryable<Atracao> query = _context.Atracoes
            .Include(e => e.RedeSociais);
