@@ -14,6 +14,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 using API.Persistence;
+using API.Application;
+using API.Application.Contract;
 
 namespace API
 {
@@ -31,9 +33,15 @@ namespace API
     {
       services.AddDbContext<EventosContext>(
         context => context.UseSqlServer(Configuration.GetConnectionString("db")));
-      services.AddControllers();
+      services.AddControllers()
+      .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling =
+      Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+      services.AddScoped<IEventosService, EventoService>();
+      services.AddScoped<GeralPersist, GeralInterfacePersistence>();
+      services.AddScoped<EventoPersist, EventoInterfacePersistence>();
       services.AddCors();
       services.AddSwaggerGen(c =>
+
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "SGS.API", Version = "v1" });
       });
@@ -42,11 +50,14 @@ namespace API
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
+
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SGS.API v1"));
+
+
       }
       else
       {
@@ -66,9 +77,9 @@ namespace API
 
 
       app.UseEndpoints(endpoints =>
-      {
-        endpoints.MapControllers();
-      });
+                {
+                  endpoints.MapControllers();
+                });
     }
   }
 }

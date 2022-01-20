@@ -6,7 +6,7 @@ using API.Persistence;
 
 namespace API.Application
 {
-  public class EventoService : APIService
+  public class EventoService : IEventosService
   {
     private readonly GeralPersist _geralPersist;
     private readonly EventoPersist _eventoPersist;

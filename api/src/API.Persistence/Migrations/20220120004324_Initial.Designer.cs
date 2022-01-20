@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Persistence.Migrations
 {
     [DbContext(typeof(EventosContext))]
-    [Migration("20220116051605_Initial")]
+    [Migration("20220120004324_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,7 @@ namespace API.Persistence.Migrations
                     b.ToTable("AtracoesEventos");
                 });
 
-            modelBuilder.Entity("API.Domain.EventosList", b =>
+            modelBuilder.Entity("API.Domain.Evento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -167,7 +167,7 @@ namespace API.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("API.Domain.EventosList", "Evento")
+                    b.HasOne("API.Domain.Evento", "Evento")
                         .WithMany("AtracoesEventos")
                         .HasForeignKey("EventoId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -180,8 +180,8 @@ namespace API.Persistence.Migrations
 
             modelBuilder.Entity("API.Domain.Lote", b =>
                 {
-                    b.HasOne("API.Domain.EventosList", "Evento")
-                        .WithMany("Lote")
+                    b.HasOne("API.Domain.Evento", "Evento")
+                        .WithMany("Lotes")
                         .HasForeignKey("EventoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -195,7 +195,7 @@ namespace API.Persistence.Migrations
                         .WithMany("RedeSociais")
                         .HasForeignKey("AtracaoId");
 
-                    b.HasOne("API.Domain.EventosList", "Evento")
+                    b.HasOne("API.Domain.Evento", "Evento")
                         .WithMany("RedesSociais")
                         .HasForeignKey("EventoId");
 
@@ -211,11 +211,11 @@ namespace API.Persistence.Migrations
                     b.Navigation("RedeSociais");
                 });
 
-            modelBuilder.Entity("API.Domain.EventosList", b =>
+            modelBuilder.Entity("API.Domain.Evento", b =>
                 {
                     b.Navigation("AtracoesEventos");
 
-                    b.Navigation("Lote");
+                    b.Navigation("Lotes");
 
                     b.Navigation("RedesSociais");
                 });

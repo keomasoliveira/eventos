@@ -11,6 +11,7 @@ namespace API.Persistence
     public EventoInterfacePersistence(EventosContext context)
     {
       _context = context;
+      _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 
     }
 
