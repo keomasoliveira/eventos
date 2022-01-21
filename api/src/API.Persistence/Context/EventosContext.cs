@@ -10,20 +10,28 @@ namespace API.Persistence
     {
 
     }
-    public DbSet<Evento> Eventos { get; private set; }
-    public DbSet<Lote> Lotes { get; private set; }
-    public DbSet<Atracao> Atracoes { get; private set; }
-    public DbSet<AtracaoEvento> AtracoesEventos { get; private set; }
-    public DbSet<RedeSocial> RedesSociais { get; private set; }
+    public DbSet<Evento> Eventos { get; set; }
+    public DbSet<Lote> Lotes { get; set; }
+    public DbSet<Atracao> Atracoes { get; set; }
+    public DbSet<AtracaoEvento> AtracoesEventos { get; set; }
+    public DbSet<RedeSocial> RedesSociais { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<AtracaoEvento>()
           .HasKey(AE => new { AE.EventoId, AE.AtracaoId });
+
+
+      modelBuilder.Entity<Evento>()
+        .HasMany(e => e.RedesSociais)
+        .WithOne(rs => rs.Evento)
+        .OnDelete(DeleteBehavior.Cascade);
+
+
+      modelBuilder.Entity<Atracao>()
+       .HasMany(a => a.RedeSociais)
+       .WithOne(rs => rs.Atracao)
+       .OnDelete(DeleteBehavior.Cascade);
     }
-
-
-
-
   }
 }
