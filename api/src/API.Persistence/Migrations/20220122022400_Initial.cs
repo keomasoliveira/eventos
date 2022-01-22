@@ -30,7 +30,6 @@ namespace API.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EventoId = table.Column<int>(type: "int", nullable: false),
                     Tema = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Local = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Foto = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -111,13 +110,13 @@ namespace API.Persistence.Migrations
                         column: x => x.AtracaoId,
                         principalTable: "Atracoes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RedesSociais_Eventos_EventoId",
                         column: x => x.EventoId,
                         principalTable: "Eventos",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

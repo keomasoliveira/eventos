@@ -9,7 +9,7 @@
         type="text"
         class="form-control"
         placeholder="buscar"
-        [(ngModel)]="filterList"
+        [(ngModel)]="filtroLista"
       />
     </div>
   </div>
@@ -20,46 +20,49 @@
     <tr>
       <th>
         <button class="btn btn-outline-light btn-sm" (click)="AlterImg()">
-          {{ showImg ? "Ocultar" : "Exibir" }}
+        <i class="{{ showImg ? 'fa fa-eye' : 'fa fa-eye-slash' }}"></i>
+        {{ showImg ? "Exibir" : "Ocultar" }}
         </button>
       </th>
       <th>#</th>
       <th>Tema</th>
       <th>Local</th>
-      <th>Lote</th>
       <th>QtdPessoas</th>
       <th>DataEvento</th>
+      <th>Lotes</th>
       <th>Opções</th>
     </tr>
   </thead>
-  <tbody *ngIf="events && events.length">
-    <tr *ngFor="let event of eventosfiltrados">
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let evento of eventosfiltrados">
       <td>
         <img
           [collapse]="showImg"
           [isAnimated]="true"
           class=""
-          src="/assets/{{event.foto}}"
+          src="/assets/{{evento.foto}}"
           [style.width.px]="widthImg"
         />
       </td>
-      <td>{{ event.eventoId }}</td>
-      <td>{{ event.tema }}</td>
-      <td>{{ event.local }}</td>
-      <td>{{ event.lote }}</td>
-      <td>{{ event.qtdPessoas }}</td>
-      <td>{{ event.dataEvento }}</td>
+      <td>{{ evento.id }}</td>
+      <td>{{ evento.tema }}</td>
+      <td>{{ evento.local }}</td>
+      <td>{{ evento.qtdPessoas }}</td>
+      <td>{{ evento.dataEvento}}</td>
+      <td>{{ evento.lotes[0].nome }}</td>
       <td>
         <button type="button" class="btn btn-primary btn-sm me-2">
-          Editar
+          <i class='fa fa-edit'></i>
+
         </button>
         <button type="button" class="btn btn-danger btn-sm">
-          Excluir
+          <i class='fa fa-trash'></i>
+
         </button>
       </td>
     </tr>
   </tbody>
-  <tfoot *ngIf="!events.length">
+  <tfoot *ngIf="!eventos.length">
     <tr>
       <td colspan="8" class="text-center">
         <h4>Nenhum Evento Encontrado</h4>

@@ -70,8 +70,8 @@ namespace API.Persistence
         }
 
         query = query
-        .OrderBy(a => a.Id)
-        .Where(a => a.Id == eventoId);
+        .OrderBy(e => e.Id)
+        .Where(e => e.Id == eventoId);
 
         return await query.FirstOrDefaultAsync();
       }

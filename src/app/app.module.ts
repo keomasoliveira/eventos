@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ListComponent } from './list/list.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { HttpClientModule } from '@angular/common/http';
+import { EventoService } from './services/Evento.service';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, ListComponent],
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [EventoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -12,7 +12,6 @@ namespace API.Domain
 
   {
     public int Id { get; set; }
-    public int EventoId { get; set; }
     public string Tema { get; set; }
     public string Local { get; set; }
     public string Foto { get; set; }

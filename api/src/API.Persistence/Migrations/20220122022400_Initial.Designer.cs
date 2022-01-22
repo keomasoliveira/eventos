@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Persistence.Migrations
 {
     [DbContext(typeof(EventosContext))]
-    [Migration("20220121174736_Initial")]
+    [Migration("20220122022400_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,9 +75,6 @@ namespace API.Persistence.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EventoId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Foto")
                         .HasColumnType("nvarchar(max)");
@@ -193,11 +190,13 @@ namespace API.Persistence.Migrations
                 {
                     b.HasOne("API.Domain.Atracao", "Atracao")
                         .WithMany("RedeSociais")
-                        .HasForeignKey("AtracaoId");
+                        .HasForeignKey("AtracaoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("API.Domain.Evento", "Evento")
                         .WithMany("RedesSociais")
-                        .HasForeignKey("EventoId");
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Atracao");
 

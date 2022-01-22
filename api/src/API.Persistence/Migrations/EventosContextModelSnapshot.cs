@@ -74,9 +74,6 @@ namespace API.Persistence.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EventoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Foto")
                         .HasColumnType("nvarchar(max)");
 
@@ -191,11 +188,13 @@ namespace API.Persistence.Migrations
                 {
                     b.HasOne("API.Domain.Atracao", "Atracao")
                         .WithMany("RedeSociais")
-                        .HasForeignKey("AtracaoId");
+                        .HasForeignKey("AtracaoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("API.Domain.Evento", "Evento")
                         .WithMany("RedesSociais")
-                        .HasForeignKey("EventoId");
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Atracao");
 

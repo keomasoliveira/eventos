@@ -54,7 +54,7 @@ namespace API.Controllers
         $"Erro ao tentar Recuperar eventos. Erro: {ex.Message}");
       }
     }
-    [HttpGet("{tema}")]
+    [HttpGet("{tema}/tema")]
     public async Task<IActionResult> GetbyTema(string tema)
     {
       try
