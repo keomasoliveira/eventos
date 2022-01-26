@@ -25,6 +25,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { TituloComponent } from './shared/titulo/titulo.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { EventoDetalheComponent } from './components/eventos/evento-detalhe/evento-detalhe.component';
+import { EventoListaComponent } from './components/eventos/evento-lista/evento-lista.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     DashboardComponent,
     PerfilComponent,
     TituloComponent,
+    EventoDetalheComponent,
+    EventoListaComponent,
   ],
   imports: [
     BrowserModule,
