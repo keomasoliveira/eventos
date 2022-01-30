@@ -1,0 +1,102 @@
+<div class="row mt-4">
+  <div class="col-md-6 d-none d-md-block" style="height: 450px">
+    <div class="text-center col-md-12 my-auto side-heder">
+      <h1>Cadastro de Usuário</h1>
+      <img
+        src="../../../../assets/registerImage.png"
+        class="my-4"
+        alt=""
+        width="400px"
+      />
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <form class="needs-validation" novalidate="">
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label class="form-label">Primeiro Nome:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            placeholder="Insira o Primeiro nome"
+            value=""
+            required=""
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label class="form-label">Último nome:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            placeholder="Insira o Último nome"
+            value=""
+            required=""
+          />
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Usuario:</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text">@</span>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Insira o Usuario"
+              required=""
+            />
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="form-label">Senha:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            type="password"
+            placeholder="Digite uma Senha"
+          />
+        </div>
+        <div class="col-sm-6">
+          <label class="form-label">Confirmar Senha:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            type="password"
+            placeholder="Confirme a Senha"
+          />
+        </div>
+      </div>
+      <div class="form-check my-3">
+        <input type="checkbox" class="form-check-input" id="customCheck1" />
+        <label class="form-check-label"
+          >Eu concordo com os <a href="#">Termos de Uso</a>.</label
+        >
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-12">
+          <button class="w-100 btn btn-success btn-lg">Registar</button>
+        </div>
+      </div>
+
+      <a class="btn btn-link btn-block col-12 my-3"> Já sou Cadastrado </a>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   isCollapsed = true;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  showMenu(){
+    return this.router.url !=='/user/login';
+  }
 }
